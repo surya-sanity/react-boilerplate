@@ -1,0 +1,34 @@
+{{#if wantMemo}}
+import { memo, HTMLAttributes } from "react";
+{{else}}
+import { HTMLAttributes } from "react";
+{{/if}}
+import { cn } from "app/lib/utils";
+
+interface {{properCase componentName}}PropsType extends HTMLAttributes<HTMLDivElement> {  
+  propValue: string;
+}
+
+/**
+ * 
+ * {{properCase componentName}}
+ * 
+ */
+{{#if wantMemo}}
+export const {{properCase componentName}}: React.FunctionComponent<{{properCase componentName}}PropsType> = memo((props: {{properCase componentName}}PropsType) => {
+{{else}}
+export function {{properCase componentName}}( props:{{properCase componentName}}PropsType ) {
+{{/if}}
+  // props
+  const { propValue, className, ...restProps } = props;
+
+  return (
+    <div className={cn(className)} {...restProps}>
+      {propValue}
+    </div>
+  );
+{{#if wantMemo}}
+})
+{{else}}
+}
+{{/if}}

@@ -1,0 +1,38 @@
+{
+  "common": {
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "errors": {
+    "somethingWentWrong": "Something went wrong"
+  },
+  "theme": {
+    "theme": "Theme",
+    "changeTheme": "Change theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "pageNotFound": {
+    "pageNotFound": "Page not found",
+    "sorryWeCouldntFindPage": "Sorry, we couldn't find the page you're looking for.",
+    "backToHome": "Back to home",
+    "contactSupport": "Contact support"
+  },
+  "login": {
+    "signInToYourAccount": "Sign in to your account",
+    "yourEmail": "Your email",
+    "password": "Password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "signIn": "Sign in",
+    "or": "or",
+    "doNotHaveAnAccount": "Don't have an account?",
+    "signUp": "Sign up",
+    "login": "Login"
+  },
+  "signup": {
+    "createANewAccount": "Create a new account",
+    "alreadyHaveAnAccount": "Already have an account?"
+  }
+}
