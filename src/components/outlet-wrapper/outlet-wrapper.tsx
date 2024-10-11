@@ -17,10 +17,14 @@ export const OutletWrapper = () => {
      *
      */
     <main className="flex h-screen w-screen flex-1 flex-col overflow-hidden text-sm">
-      <NavBar />
       <div className="flex h-full flex-1 overflow-hidden">
-        <Sidebar />
-        <Outlet />
+        <div className="flex h-full !w-[3.4rem] max-w-[3.5rem]">
+          <Sidebar />
+        </div>
+        <div className="flex flex-1 flex-col overflow-hidden">
+          <NavBar />
+          <Outlet />
+        </div>
       </div>
     </main>
   );

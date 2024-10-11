@@ -27,7 +27,7 @@ export function SidebarProvider({ children, storageKey = "sidebar-state", ...pro
   const { isMediumScreen } = useWindowDimensions();
 
   useEffect(() => {
-    if (!isMediumScreen && isSidebarOpen) {
+    if (isMediumScreen && isSidebarOpen) {
       setIsSidebarOpen(false);
     }
   }, [isMediumScreen, isSidebarOpen]);
