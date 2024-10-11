@@ -1,5 +1,4 @@
-import useWindowDimensions from "app/hooks/use-window-dimensions";
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 
 type SidebarProviderProps = {
   children: React.ReactNode;
@@ -22,15 +21,6 @@ export const SidebarProviderContext = createContext<SidebarProviderState>(initia
 export function SidebarProvider({ children, storageKey = "sidebar-state", ...props }: Readonly<SidebarProviderProps>) {
   // states
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(() => localStorage.getItem(storageKey) === "true");
-
-  // hooks
-  const { isMediumScreen } = useWindowDimensions();
-
-  useEffect(() => {
-    if (isMediumScreen && isSidebarOpen) {
-      setIsSidebarOpen(false);
-    }
-  }, [isMediumScreen, isSidebarOpen]);
 
   const value: SidebarProviderState = useMemo(() => {
     return {

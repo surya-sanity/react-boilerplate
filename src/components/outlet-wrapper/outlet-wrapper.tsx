@@ -18,7 +18,7 @@ export const OutletWrapper = () => {
      */
     <main className="flex h-screen w-screen flex-1 flex-col overflow-hidden text-sm">
       <div className="flex h-full flex-1 overflow-hidden">
-        <div className="flex h-full !w-[3.4rem] max-w-[3.5rem]">
+        <div className="hidden h-full !w-[3.4rem] max-w-[3.5rem] md:flex">
           <Sidebar />
         </div>
         <div className="flex flex-1 flex-col overflow-hidden">
