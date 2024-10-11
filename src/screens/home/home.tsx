@@ -1,4 +1,5 @@
 import React, { memo } from "react";
+import { HeaderComponent } from "./components/header-component";
 
 /**
  *
@@ -7,8 +8,8 @@ import React, { memo } from "react";
  */
 const Home: React.FunctionComponent = memo(() => {
   return (
-    <div className="h-full w-full flex-col overflow-y-auto">
-      <div className="flex flex-col gap-2"></div>
+    <div className=" h-full w-full flex-col gap-2 overflow-y-auto">
+      <HeaderComponent />
     </div>
   );
 });

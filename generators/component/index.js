@@ -25,6 +25,12 @@ export const componentGenerator = {
     },
     {
       type: "confirm",
+      name: "wrapInFolder",
+      message: "Do you want to wrap your component in a folder of the same name?",
+      default: false,
+    },
+    {
+      type: "confirm",
       name: "wantMemo",
       default: false,
       message: "Do you want to wrap your component in React.memo?",
@@ -39,7 +45,11 @@ export const componentGenerator = {
       .join("-")
       .toLowerCase();
 
-    const componentPath = `${baseGeneratorPath}/${answers.path}/${componentName}`;
+    const wrapInFolder = answers.wrapInFolder
+      ? `/${answers.componentName}`
+      : "";
+
+    const componentPath = `${baseGeneratorPath}/${answers.path}/${wrapInFolder}`;
     const actualComponentPath = `${baseGeneratorPath}/${answers.path}/${answers.componentName}`;
 
     if (pathExists(actualComponentPath)) {
