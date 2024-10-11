@@ -75,12 +75,12 @@ export const RepositorySection: React.FunctionComponent<RepositorySectionPropsTy
                 >
                   <div>{repo.name}</div>
                   <div className="flex flex-row items-center gap-4">
-                    <div className="flex flex-row items-center gap-2">
+                    <div className="flex min-w-[5rem] flex-row items-center justify-start gap-2">
                       <div className="mr-1">⭐️</div>
                       <div>{repo.stargazers_count}</div>
                     </div>
 
-                    <a href={repo.html_url} target={"_blank"}>
+                    <a href={repo.html_url} target={"_blank"} className="rounded-full p-1 hover:bg-secondary">
                       <OpenInNewWindowIcon />
                     </a>
                   </div>
