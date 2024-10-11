@@ -12,6 +12,7 @@ import SEO from "app/assets/images/features/seo.png";
 import StaticCodeAnalysis from "app/assets/images/features/static-code-analysis.png";
 import Typescript from "app/assets/images/features/typescript.png";
 import Shadcn from "app/assets/images/features/shadcn.png";
+import { RepositorySection } from "./repository-section";
 
 interface HeaderComponentPropsType extends HTMLAttributes<HTMLDivElement> {}
 
@@ -61,6 +62,7 @@ export const HeaderComponent: React.FunctionComponent<HeaderComponentPropsType> 
             to see how your application's state changes and travel in time to debug. Type any github username below and see it in action
             with Redux Dev Tools.
           </p>
+          <RepositorySection />
         </div>
       </div>
 

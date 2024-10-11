@@ -6,7 +6,8 @@ export const allApi = createApi({
   reducerPath: "allApi",
   baseQuery: baseQueryWithInterceptor,
   endpoints: () => ({}),
-  refetchOnReconnect: true,
-  refetchOnFocus: true,
+  refetchOnReconnect: false,
+  refetchOnFocus: false,
+  refetchOnMountOrArgChange: false,
   tagTypes: ["CurrentUser"],
 });
