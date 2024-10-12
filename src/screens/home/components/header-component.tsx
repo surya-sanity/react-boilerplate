@@ -1,4 +1,4 @@
-import { memo, HTMLAttributes } from "react";
+import { memo, HTMLAttributes, useMemo } from "react";
 import { cn } from "app/lib/utils";
 import { NavLink } from "react-router-dom";
 import { ClassValue } from "clsx";
@@ -13,6 +13,10 @@ import StaticCodeAnalysis from "app/assets/images/features/static-code-analysis.
 import Typescript from "app/assets/images/features/typescript.png";
 import Shadcn from "app/assets/images/features/shadcn.png";
 import { RepositorySection } from "./repository-section";
+import { useLocalization } from "app/hooks/use-localization";
+import { Checkbox } from "app/components/ui/checkbox";
+import { Label } from "app/components/ui/label";
+import { useTranslation } from "react-i18next";
 
 interface HeaderComponentPropsType extends HTMLAttributes<HTMLDivElement> {}
 
@@ -25,6 +29,10 @@ export const HeaderComponent: React.FunctionComponent<HeaderComponentPropsType> 
   // props
   const { className, ...restProps } = props;
 
+  // hooks
+  const { t } = useTranslation();
+  const { onChangeLanguage, i18n } = useLocalization();
+
   // classnames
   const featureIconWrapperClassName: ClassValue =
     "flex min-h-[4rem] min-w-[4rem] w-[4rem] h-[4rem] mt-1 items-center justify-center rounded-xl overflow-clip";
@@ -33,6 +41,14 @@ export const HeaderComponent: React.FunctionComponent<HeaderComponentPropsType> 
   const featureDescClassName: ClassValue = "text-base text-muted-foreground";
   const featureSubDescClassName: ClassValue = "text-sm text-muted-foreground";
   const featureImageClassName = "w-full h-full object-cover object-center";
+
+  const isCurrentLanguageEnglish = useMemo(() => {
+    return i18n.language === "en-GB";
+  }, [i18n.language]);
+
+  const onChangeLanguageHandler = (locale: string) => {
+    onChangeLanguage(locale);
+  };
 
   return (
     <section className={cn("mx-auto my-10 flex flex-col gap-10 px-5 lg:max-w-[72rem] lg:px-10", className)} {...restProps}>
@@ -115,13 +131,21 @@ export const HeaderComponent: React.FunctionComponent<HeaderComponentPropsType> 
         <div className="flex flex-col gap-2">
           <h2 className={featureSectionHeaderClassName}>i18n Internationalization & Pluralization</h2>
           <div className="flex flex-col gap-1">
-            <p className={featureDescClassName}>
-              Scalable apps need to support multiple languages, easily add and support multiple languages. Change the language below to see
-              how instantly it updates the page without refreshing.
-            </p>
-            <p className={featureSubDescClassName}>
-              (Only some of the features below are translated to demonstrate an example) Select Language
-            </p>
+            <p className={featureDescClassName}>{t("features.i18nDesc")}</p>
+            <p className={featureSubDescClassName}>(The above text will be translated for demo purposes)</p>
+            <div className="mt-2 flex flex-col gap-3">
+              <div className="uppercase text-muted-foreground">Select language</div>
+              <div className="flex flex-row items-center gap-5">
+                <div className="flex cursor-pointer flex-row items-center gap-2">
+                  <Checkbox checked={isCurrentLanguageEnglish} onCheckedChange={onChangeLanguageHandler.bind(this, "en-GB")} id="english" />
+                  <Label htmlFor="english">English</Label>
+                </div>
+                <div className="flex cursor-pointer flex-row items-center gap-2">
+                  <Checkbox checked={!isCurrentLanguageEnglish} id="french" onCheckedChange={onChangeLanguageHandler.bind(this, "fr-FR")} />
+                  <Label htmlFor="french">French</Label>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

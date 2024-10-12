@@ -1,0 +1,41 @@
+{
+  "common": {
+    "settings": "Paramètres",
+    "logout": "Déconnexion"
+  },
+  "errors": {
+    "somethingWentWrong": "Quelque chose s'est mal passé"
+  },
+  "theme": {
+    "theme": "Thème",
+    "changeTheme": "Changer de thème",
+    "light": "Lumière",
+    "dark": "Sombre",
+    "system": "Système"
+  },
+  "pageNotFound": {
+    "pageNotFound": "Page introuvable",
+    "sorryWeCouldntFindPage": "Désolé, nous n'avons pas trouvé la page que vous recherchez.",
+    "backToHome": "Retour à la maison",
+    "contactSupport": "Contacter l'assistance"
+  },
+  "login": {
+    "signInToYourAccount": "Connectez-vous à votre compte",
+    "yourEmail": "Votre email",
+    "password": "Mot de passe",
+    "rememberMe": "Souviens-toi de moi",
+    "forgotPassword": "Mot de passe oublié ?",
+    "signIn": "Se connecter",
+    "or": "ou",
+    "doNotHaveAnAccount": "Vous n'avez pas de compte ?",
+    "signUp": "S'inscrire",
+    "login": "Se connecter"
+  },
+  "signup": {
+    "createANewAccount": "Créer un nouveau compte",
+    "alreadyHaveAnAccount": "Vous avez déjà un compte ?"
+  },
+  "features": {
+    "i18nDesc": "Les applications évolutives doivent prendre en charge plusieurs langues, ajouter et prendre en charge facilement plusieurs langues. "
+  }
+}

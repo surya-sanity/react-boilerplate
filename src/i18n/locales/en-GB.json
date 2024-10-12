@@ -34,5 +34,8 @@
   "signup": {
     "createANewAccount": "Create a new account",
     "alreadyHaveAnAccount": "Already have an account?"
+  },
+  "features": {
+    "i18nDesc": "Scalable apps need to support multiple languages, easily add and support multiple languages. Change the language below to see how instantly it updates this section without refreshing."
   }
 }
