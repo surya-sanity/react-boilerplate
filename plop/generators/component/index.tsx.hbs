@@ -1,0 +1,34 @@
+import React from 'react';
+
+interface {{pascalCase componentName}}Props {
+  // Define your component's props here
+}
+
+export const {{pascalCase componentName}}: React.FC<{{pascalCase componentName}}Props> = (props) => {
+  // props destructuring
+  const { } = props;
+
+  // hooks
+  
+  // memoized values
+
+  // handlers
+
+  // effects
+
+  return (
+    <div>
+      <h1>{{pascalCase componentName}}</h1>
+    </div>
+  );
+};
+
+{{#if wantMemo}}
+/**
+ * Memoized version of the {{pascalCase componentName}} component.
+ * It will only re-render if its props have changed.
+ */
+export default React.memo({{pascalCase componentName}});
+{{else}}
+export default {{pascalCase componentName}};
+{{/if}}
