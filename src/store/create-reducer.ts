@@ -1,24 +1,23 @@
-/**
- * Combine all reducers in this file and export the combined reducers.
- */
-
-import { combineReducers } from "@reduxjs/toolkit";
-import { allApi } from "app/services/all-api";
-import { persistReducer } from "redux-persist";
-import { persistConfig } from "./store";
+import { combineReducers, Reducer } from "@reduxjs/toolkit";
 import { InjectedReducersType } from "./store-types";
+import { allApi } from "app/services/all-api";
 
-export function createReducer(injectedReducers: InjectedReducersType = {}) {
-  // Initially we don't have any injectedReducers, so returning identity function to avoid the error
-  if (Object.keys(injectedReducers).length === 0) {
-    return (state: any) => state;
-  } else {
-    return persistReducer(
-      persistConfig,
-      combineReducers({
-        ...injectedReducers,
-        [allApi.reducerPath]: allApi.reducer,
-      })
-    );
-  }
+/**
+ * Creates the root reducer for the store.
+ *
+ * It combines the static reducers (like RTK Query's API) with any
+ * reducers that are injected dynamically at runtime.
+ */
+export function createReducer(injectedReducers: InjectedReducersType = {}): Reducer {
+  // These will be available on app load.
+  const staticReducers = {
+    [allApi.reducerPath]: allApi.reducer,
+    // Add any other static reducers here, e.g., 'theme', 'auth', etc.
+  };
+
+  // Combining the static reducers with the dynamically injected ones.
+  return combineReducers({
+    ...staticReducers,
+    ...injectedReducers,
+  });
 }
