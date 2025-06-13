@@ -1,0 +1,9 @@
+/**
+ * Asynchronously loads the component for {{pascalCase componentName}}.
+ */
+import { lazyLoad } from 'app/utils/loadable';
+
+export const {{pascalCase componentName}} = lazyLoad(
+  () => import('./{{pascalCase componentName}}'),
+  (module) => module.{{pascalCase componentName}},
+);
